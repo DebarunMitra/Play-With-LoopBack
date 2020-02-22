@@ -14,15 +14,15 @@
     ]
   },
   "appQuestion": {
-    "dataSource": "mongo",
+    "dataSource": "mongoatlas",
     "public": true
   },
   "City": {
-    "dataSource": "mongo",
+    "dataSource": "mongoatlas",
     "public": true
   },
   "Region": {
-    "dataSource": "mongo",
+    "dataSource": "mongoatlas",
     "public": true
   }
 }
