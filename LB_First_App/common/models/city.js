@@ -2,6 +2,15 @@
 
 module.exports = function(City) {
                                   /**
+                                   * city name validation
+                                  */
+                                  City.validatesLengthOf("name",{
+                                        min:3,
+                                        message:{min:"City name is too short"}
+                                   });
+
+
+                                  /**
                                    * populate the city
                                    * @param {number} count number of people to populate
                                    * @param {Function(Error, object)} callback

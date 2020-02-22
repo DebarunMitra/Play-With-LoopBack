@@ -24,5 +24,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "prototype.depop": {
+      "accepts": [
+        {
+          "arg": "count",
+          "type": "number",
+          "required": true,
+          "description": "number of depopulation of people"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "result of depopulation"
+        }
+      ],
+      "description": "depopulate the city",
+      "http": [
+        {
+          "path": "/depop",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
