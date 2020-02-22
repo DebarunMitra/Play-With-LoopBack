@@ -1,9 +1,9 @@
 {
   "mongo": {
-    "host": "",
-    "port": 0,
+    "host": "localhost",
+    "port": 27017,
     "url": "mongodb://localhost:27017/test",
-    "database": "",
+    "database": "lb-pjt",
     "password": "",
     "name": "mongo",
     "user": "",

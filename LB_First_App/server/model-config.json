@@ -16,5 +16,13 @@
   "appQuestion": {
     "dataSource": "mongo",
     "public": true
+  },
+  "City": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "Region": {
+    "dataSource": "mongo",
+    "public": true
   }
 }

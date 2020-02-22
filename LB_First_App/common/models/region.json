@@ -1,24 +1,28 @@
 {
-  "name": "appQuestion",
+  "name": "Region",
+  "plural": "region",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "question": {
-      "type": "string"
-    },
-    "answer": {
-      "type": "string"
-    },
-    "category": {
+    "name": {
       "type": "string",
       "required": true
+    },
+    "CityId": {
+      "type": "number"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "city": {
+      "type": "belongsTo",
+      "model": "City",
+      "foreignKey": "CityId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
