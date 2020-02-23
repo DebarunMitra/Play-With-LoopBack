@@ -5,6 +5,9 @@ import About from './About';
 import MeetupDetails from './MeetupDetails';
 import AddMeetup from './AddMeetup';
 import EditMeetup from './EditMeetup';
+import Login from './Login';
+import Logout from './Logout';
+
 
 const Main = () => (
   <main>
@@ -14,6 +17,8 @@ const Main = () => (
       <Route exact path="/letsmeets/add" component={AddMeetup} />
       <Route exact path="/letsmeets/edit/:id" component={EditMeetup} />
       <Route exact path="/letsmeets/:id" component={MeetupDetails} />
+      <Route exact path="/login/" component={Login} />
+      <Route exact path="/logout/" component={Logout} />
     </Switch>
   </main>
 );

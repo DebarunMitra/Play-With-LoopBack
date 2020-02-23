@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Navbar extends Component{
   render(){
@@ -22,6 +23,20 @@ class Navbar extends Component{
                   <i className="fa fa-users"></i> Meetups
                 </Link>
               </li>
+
+              {this.props.userToken!==''?(
+                <li>
+                  <Link to="/logout">
+                    <i className="fa fa-users"></i> logout
+                  </Link>
+                </li>
+              ):(
+                  <li>
+                    <Link to="/login">
+                      <i className="fa fa-users"></i> Login
+                    </Link>
+                  </li>
+              )}
             </ul>
             <ul className="side-nav" id="main-menu">
               <li>
