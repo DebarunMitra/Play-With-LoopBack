@@ -12,6 +12,7 @@ class MeetupDetails extends Component{
 
   componentWillMount(){
     this.getMeetup();
+    // !localStorage.getItem("userToken") ? this.props.history.push('/') : true
   }
 
   getMeetup(){
@@ -49,14 +50,21 @@ class MeetupDetails extends Component{
             Address: {this.state.details.address}
           </li>
         </ul>
-        <Link className="btn" to={`/letsmeets/edit/${this.state.details.id}`}>
-          {" "}
-          Edit
-        </Link>
-
-        <button onClick={this.onDelete.bind(this)} className="btn red right">
-          Delete
-        </button>
+        {
+          localStorage.getItem("userToken") ?
+            <Link className="btn" to={`/letsmeets/edit/${this.state.details.id}`}>
+              {" "}
+              Edit
+            </Link>
+          : false
+        }
+        {
+          localStorage.getItem("userToken") ?
+            <button onClick={this.onDelete.bind(this)} className="btn red right">
+              Delete
+             </button>
+            : false
+        }
       </div>
     );
   }

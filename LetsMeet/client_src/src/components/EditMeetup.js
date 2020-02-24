@@ -15,8 +15,13 @@ class EditMeetup extends Component{
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  // componentDidMount() {
+
+  // }
+
   componentWillMount(){
     this.getMeetupDetails();
+    !localStorage.getItem("userToken") ? this.props.history.push('/') : true
   }
 
   getMeetupDetails(){

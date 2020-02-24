@@ -19,14 +19,14 @@ class Login extends Component {
   // }
 
   getLoginDetails() {
-    console.log(this.state.pass);
-
     axios.request({
         method: 'post',
         url: 'http://localhost:3000/api/Users/login',
         data: { "email": this.state.email, "password": this.state.pass}
       })
       .then(response => {
+        console.log(response.data.id);
+
         this.setState({
           userToken: response.data.id,
         }, () => {
@@ -37,16 +37,6 @@ class Login extends Component {
       })
       .catch(err => console.log(err));
   }
-
-  // editMeetup(newMeetup) {
-  //   axios.request({
-  //     method: 'put',
-  //     url: `http://localhost:3000/api/letsmeets/${this.state.id}`,
-  //     data: newMeetup
-  //   }).then(response => {
-  //     this.props.history.push('/');
-  //   }).catch(err => console.log(err));
-  // }
 
   onSubmit(e) {
     this.getLoginDetails();

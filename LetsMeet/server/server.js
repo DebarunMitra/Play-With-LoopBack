@@ -10,6 +10,8 @@ const boot = require('loopback-boot');
 
 const app = module.exports = loopback();
 
+app.middleware('auth', loopback.token());
+
 app.start = function() {
   // start the web server
   return app.listen(function() {

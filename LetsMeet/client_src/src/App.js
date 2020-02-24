@@ -19,7 +19,7 @@ export default class App extends Component {
 
   render(){
     console.log(this.state.userToken);
-    console.log(localStorage.getItem("userkey"));
+    console.log(localStorage.getItem("userToken"));
 
     return (
       <div>

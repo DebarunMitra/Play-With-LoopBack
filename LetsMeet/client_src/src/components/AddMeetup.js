@@ -2,15 +2,48 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
+
+
+
 class AddMeetup extends Component{
+
+  constructor(props){
+    super(props);
+    this.state={
+      userToken:''
+    }
+  }
+
+  componentDidMount() {
+                        // !localStorage.getItem("userToken")?this.props.history.push('/'):true
+                        localStorage.getItem("userToken")
+                          ? this.setState({
+                              userToken: localStorage.getItem("userToken")
+                            })
+                          : this.setState({
+                              userToken: ''
+                            });
+                      }
+
   addMeetup(newMeetup){
-    axios.request({
-      method:'post',
-      url:'http://localhost:3000/api/letsmeets',
-      data: newMeetup
-    }).then(response => {
-      this.props.history.push('/');
-    }).catch(err => console.log(err));
+    console.log(this.state.userToken);
+
+    // if (this.state.userToken!=='') {
+      axios
+        .request({
+          method: "post",
+          url: `http://localhost:3000/api/letsmeets?access_token=${this.state.userToken}`,
+          data: newMeetup
+        })
+        .then(response => {
+          this.props.history.push("/");
+        })
+        .catch(err =>{
+          console.log(err);
+          document.getElementById("authMsg").innerHTML="Access error";
+        });
+    // }
+
   }
 
   onSubmit(e){
@@ -44,6 +77,7 @@ class AddMeetup extends Component{
           </div>
           <input type="submit" value="Save" className="btn" />
         </form>
+        <p id="authMsg"></p>
       </div>
     )
   }
